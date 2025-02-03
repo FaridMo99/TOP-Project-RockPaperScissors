@@ -14,7 +14,7 @@ body {
     align-items:center;
 }
 
-p {
+button {
     background-color:var(--div-bg-color);
     width:25%;
     height:25%;
@@ -29,11 +29,15 @@ p {
     text-shadow:0 0 40px green;
     box-shadow:0 0 50px green;
     border-radius:4px;
+    border:1px solid green;
 
 }
 
-p:hover {
+button:hover {
     color:black;
+    border:purple;
+    box-shadow:0 0 50px purple;
+    text-shadow:0 0 40px purple;
 }
 
 

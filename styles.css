@@ -35,7 +35,7 @@ button {
 
 button:hover {
     color:black;
-    border:purple;
+    border:1px solid purple;
     box-shadow:0 0 50px purple;
     text-shadow:0 0 40px purple;
 }

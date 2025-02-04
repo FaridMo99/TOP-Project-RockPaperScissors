@@ -30,7 +30,6 @@ function getComputerChoice() {
 }
 
 
-
 // algorithm for human choice
 function getHumanChoice() {
     const input = prompt("Choose between Rock Paper and Scissors").toLocaleUpperCase();

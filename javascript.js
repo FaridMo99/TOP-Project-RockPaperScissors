@@ -1,76 +1,120 @@
-/*
-Step 2: Write the logic to get the computer choice
-Your game will be played against the computer. You will write a function that randomly returns “rock”, “paper” or “scissors”.
+//algorithm for computer choice
 
-Create a new function named getComputerChoice.
-Write the code so that getComputerChoice will randomly return one of the following string values: “rock”, “paper” or “scissors”.
-Hint: The Math.random method returns a random number that’s greater than or equal to 0 and less than 1.
- Think about how you can use this to conditionally return one of the multiple choices.
-Note: Some learners might think that arrays are necessary for this problem, but they aren’t.
- If you’re unfamiliar with arrays, don’t worry - they’ll be covered later in the curriculum.
-Test that your function returns what you expect using console.log or the browser developer tools before advancing to the next step.
-*/
+    //function for randomizer between 1-9
+function getRandomIntInclusive(min, max) {
+    min = 1;
+    max = 9;
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+}
 
+    //function for returning the number as a string and showing the player the result
+function getComputerChoice(a) {
+    a = getRandomIntInclusive();
+    if  (a <= 3) {
+        console.log("Computer chose Rock");
+        return "Rock";
+    }
 
+    else if (a <= 6) {
+        console.log("Computer chose Paper");
+        return "Paper";
+    }
 
-
-
-
-
-
-/*
-Step 3: Write the logic to get the human choice
-Your game will be played by a human player. You will write a function that takes the user choice and returns it.
-
-Create a new function named getHumanChoice.
-Write the code so that getHumanChoice will return one of the valid choices depending on what the user inputs.
-Hint: Use the prompt method to get the user’s input.
-Test what your function returns by using console.log.
-*/
-
-
+    else {
+        console.log("Computer chose Scissors");
+        return "Scissors";
+    }
+}
 
 
 
+// algorithm for human choice
+
+function getHumanChoice(input) {
+    input = prompt("Choose between Rock Paper and Scissors").toUpperCase;
+
+    if (input = "ROCK") {
+        console.log("You chose Rock");
+        return "Rock";
+    }
+
+    else if (input = "PAPER") {
+        console.log("You chose Paper");
+        return "Paper";
+    }
+
+    else {
+        console.log("You chose Scissors");
+        return "Scissors";
+    }
+}
+
+getHumanChoice();
+getComputerChoice();
+//score
+
+const humanScore = 0;
+const computerScore = 0;
+
+//algorithm for playes score
+
+function playRound(humanChoice, computerChoice) {
+ humanChoice = getHumanChoice;
+ computerChoice = getComputerChoice;
+
+ if (humanChoice == "Rock" && computerChoice == "Paper") {
+    console.log("You lost Rock loses to Paper");
+    return 1,
+    computerScore++;
+ }
+
+ else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+    console.log("You Won Rock beats Scissors");
+    return 1,
+    humanScore++;
+ }
+
+ else if (humanChoice == "Paper" && computerChoice == "Rock") {
+    console.log("You Won Paper beats Rock");
+    return 1,
+    humanScore++;
+ }
+
+ else if (humanChoice == "Paper" && computerChoice == "Scissors") {
+    console.log("You lost Paper loses to Scissors");
+    return 1,
+    computerScore++;
+ }
+
+ else if (humanChoice == "Scissors" && computerChoice == "Rock") {
+    console.log("You lost Scissors loses to Rock");
+    return 1,
+    computerScore++;
+ }
+
+ else if (humanChoice == "Scissors" && computerChoice == "Paper") {
+    console.log("You Won Scissors beats Paper");
+    return 1,
+    humanScore++;
+ }
+
+ else {
+    console.log("Draw!");
+    return 1;
+ }
+
+}
+
+playRound();
+console.log(humanScore);
+//algorithm for adding Rounds til 5 and ending the game
 
 
+function playGame() {
 
-
-/*
-Step 4: Declare the players score variables
-Your game will keep track of the players score. You will write variables to keep track of the players score.
-
-Create two new variables named humanScore and computerScore in the global scope.
-Initialize those variables with the value of 0.
-*/
-
-
-
-
-
-
-
-
-
-
-
-/*
-Step 5: Write the logic to play a single round
-Your game will be played round by round. You will write a function that takes the human and computer player choices as arguments,
- plays a single round, increments the round winner’s score and logs a winner announcement.
-
-Create a new function named playRound.
-Define two parameters for playRound: humanChoice and computerChoice. Use these two parameters to take the human and computer choices
- as arguments.
-Make your function’s humanChoice parameter case-insensitive so that players can input “rock”, “ROCK”, “RocK”, or other variations.
-Write the code for your playRound function to console.log a string value representing the round winner, such as:
- “You lose! Paper beats Rock”.
-Increment the humanScore or computerScore variable based on the round winner.
-*/
-
-
-
-
+}
 
 
 

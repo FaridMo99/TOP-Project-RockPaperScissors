@@ -33,8 +33,7 @@ function getComputerChoice() {
 
 // algorithm for human choice
 function getHumanChoice() {
-    let input;
-    input = prompt("Choose between Rock Paper and Scissors").toLocaleUpperCase();
+    const input = prompt("Choose between Rock Paper and Scissors").toLocaleUpperCase();
 
     if (input == "ROCK") {
         console.log("You chose Rock");
@@ -66,6 +65,7 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
  humanChoice = getHumanChoice();
  computerChoice = getComputerChoice();
+
  if (humanChoice == "Rock" && computerChoice == "Paper") {
     console.log("You lost Rock loses to Paper");
     computerScore++;
@@ -113,24 +113,22 @@ function playRound(humanChoice, computerChoice) {
 //algorithm for adding Rounds til 5 and ending the game
 
 function playGame() {
-    getHumanChoice();
-    getComputerChoice();
-    playRound();
-
-    for(playRound; playRound <= 5; playRound++) {
-            console.log("Round" + playRound);
+    
+   for(let x = 1; x <= 5; x++) {
+            playRound();
+            console.log(`Round ${x}`);
     }
 
-    if (humanScore == 5) {
-        console.log("You Won");
+    if (humanScore > computerScore) {
+        console.log("You Won the Game");
     }
 
-    else if (computerScore == 5) {
-        console.log("Computer Won");
+    else if (computerScore > humanScore) {
+        console.log("Computer Won the Game");
     }
 
     else {
-        console.log("Game ongoing");
+        console.log("Game ended in a Draw!");
     }
     console.log(`Your Score ${humanScore}`);
     console.log(`Computer Score ${computerScore}`);
@@ -138,19 +136,3 @@ function playGame() {
 
 playGame();
 
-
-/*
-Step 6: Write the logic to play the entire game
-Your game will play 5 rounds. You will write a function named playGame that calls playRound to play 5 rounds, keeps track of the 
-scores and declares a winner at the end.
-
-Create a new function named playGame.
-Move your playRound function and score variables so that they’re declared inside of the new playGame function
-Play 5 rounds by calling playRound 5 times.
-Hint: When you assign a function call to a variable, the return value of that function is assigned to the variable.
- Accessing the variable afterward will only provide the assigned value; it doesn’t recall the function. You need to recall the
-  choice functions to get new choices for each round.
-Re-work your previous functions or create more helper functions if necessary. Specifically, you may want to change the return
- values to something more useful.
-If you already know about loops, you can use them. If not, don’t worry! Loops will be covered in the next lesson.
-*/

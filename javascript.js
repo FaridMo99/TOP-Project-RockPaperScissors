@@ -10,7 +10,8 @@ function getRandomIntInclusive(min, max) {
 }
 
     //function for returning the number as a string and showing the player the result
-function getComputerChoice(a) {
+function getComputerChoice() {
+    let a;
     a = getRandomIntInclusive();
     if  (a <= 3) {
         console.log("Computer chose Rock");
@@ -31,73 +32,74 @@ function getComputerChoice(a) {
 
 
 // algorithm for human choice
+function getHumanChoice() {
+    let input;
+    input = prompt("Choose between Rock Paper and Scissors").toLocaleUpperCase();
 
-function getHumanChoice(input) {
-    input = prompt("Choose between Rock Paper and Scissors").toUpperCase;
-
-    if (input = "ROCK") {
+    if (input == "ROCK") {
         console.log("You chose Rock");
         return "Rock";
     }
 
-    else if (input = "PAPER") {
+    else if (input == "PAPER") {
         console.log("You chose Paper");
         return "Paper";
     }
 
-    else {
+    else if (input == "SCISSORS") {
         console.log("You chose Scissors");
         return "Scissors";
     }
+
+    else {
+        console.log("Invalid answer");
+    }
 }
 
-getHumanChoice();
-getComputerChoice();
+
 //score
 
-const humanScore = 0;
-const computerScore = 0;
-
+let humanScore = 0;
+let computerScore = 0;
 //algorithm for playes score
 
 function playRound(humanChoice, computerChoice) {
- humanChoice = getHumanChoice;
- computerChoice = getComputerChoice;
-
+ humanChoice = getHumanChoice();
+ computerChoice = getComputerChoice();
  if (humanChoice == "Rock" && computerChoice == "Paper") {
     console.log("You lost Rock loses to Paper");
-    return 1,
     computerScore++;
+    return 1; 
  }
 
  else if (humanChoice == "Rock" && computerChoice == "Scissors") {
     console.log("You Won Rock beats Scissors");
-    return 1,
     humanScore++;
+    return 1;
  }
 
  else if (humanChoice == "Paper" && computerChoice == "Rock") {
     console.log("You Won Paper beats Rock");
-    return 1,
     humanScore++;
+    return 1;  
  }
 
  else if (humanChoice == "Paper" && computerChoice == "Scissors") {
     console.log("You lost Paper loses to Scissors");
-    return 1,
     computerScore++;
+    return 1;   
  }
 
  else if (humanChoice == "Scissors" && computerChoice == "Rock") {
     console.log("You lost Scissors loses to Rock");
-    return 1,
     computerScore++;
+    return 1;   
  }
 
  else if (humanChoice == "Scissors" && computerChoice == "Paper") {
     console.log("You Won Scissors beats Paper");
-    return 1,
     humanScore++;
+    return 1;  
  }
 
  else {
@@ -107,16 +109,34 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
-playRound();
-console.log(humanScore);
+
 //algorithm for adding Rounds til 5 and ending the game
 
-
 function playGame() {
+    getHumanChoice();
+    getComputerChoice();
+    playRound();
 
+    for(playRound; playRound <= 5; playRound++) {
+            console.log("Round" + playRound);
+    }
+
+    if (humanScore == 5) {
+        console.log("You Won");
+    }
+
+    else if (computerScore == 5) {
+        console.log("Computer Won");
+    }
+
+    else {
+        console.log("Game ongoing");
+    }
+    console.log(`Your Score ${humanScore}`);
+    console.log(`Computer Score ${computerScore}`);
 }
 
-
+playGame();
 
 
 /*

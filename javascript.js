@@ -1,5 +1,16 @@
 //algorithm for computer choice
 
+// hiding result bar
+
+const solution = document.getElementById("solution");
+
+function hide() {
+  solution.style.display ="none";
+}
+
+   
+hide();
+
     //function for randomizer between 1-9
 function getRandomIntInclusive(min, max) {
     min = 1;
@@ -59,7 +70,7 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
-//algorithm for playes score
+//algorithm for players score
 
 function playRound(humanChoice, computerChoice) {
  humanChoice = getHumanChoice();
@@ -119,19 +130,24 @@ function playGame() {
     }
 
     if (humanScore > computerScore) {
-        console.log("You Won the Game");
+        solution.innerText = "You Won the Game";
     }
 
     else if (computerScore > humanScore) {
-        console.log("Computer Won the Game");
+        solution.innerText = "Computer Won the Game";
     }
 
     else {
-        console.log("Game ended in a Draw!");
+        solution.innerText = "Game ended in a Draw!";
     }
     console.log(`Your Score ${humanScore}`);
     console.log(`Computer Score ${computerScore}`);
+    solution.style.display = "block";
+    solution.style.display = "flex";
+    solution.style.justifyContent = "center";
+    solution.style.alignItems = "center";
 }
 
 playGame();
+
 

@@ -42,8 +42,14 @@ function getComputerChoice() {
 
 
 // algorithm for human choice
+const rock = document.getElementById("rock")
+const paper = document.getElementById("paper")
+const scissors = document.getElementById("scissors")
+
+
 function getHumanChoice() {
-    const input = prompt("Choose between Rock Paper and Scissors").toLocaleUpperCase();
+
+    const input = prompt("Choose between rock paper and scissors").toLocaleUpperCase();
 
     if (input == "ROCK") {
         console.log("You chose Rock");

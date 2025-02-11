@@ -1,17 +1,6 @@
 //algorithm for computer choice
 
-// hiding result bar
-
-const solution = document.getElementById("solution");
-
-function hide() {
-  solution.style.display ="none";
-}
-
-   
-hide();
-
-    //function for randomizer between 1-9
+ //function for randomizer between 1-9
 function getRandomIntInclusive(min, max) {
     min = 1;
     max = 9;

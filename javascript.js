@@ -1,3 +1,7 @@
+//div for the results
+let div = document.createElement("div")
+div.setAttribute("id", "results")
+
 //algorithm for computer choice
 
  //function for randomizer between 1-9
@@ -12,17 +16,14 @@ function getComputerChoice() {
     let a;
     a = getRandomIntInclusive(1, 9);
     if  (a <= 3) {
-        console.log("Computer chose Rock");
         return "Rock";
     }
 
     else if (a <= 6) {
-        console.log("Computer chose Paper");
         return "Paper";
     }
 
     else {
-        console.log("Computer chose Scissors");
         return "Scissors";
     }
 }
@@ -34,6 +35,8 @@ const rock = document.getElementById("rock")
 const paper = document.getElementById("paper")
 const scissors = document.getElementById("scissors")
 
+scissors.parentNode.insertBefore(div, scissors.nextSibling);
+
 rock.addEventListener("click", () => getChoice("Rock"));
 paper.addEventListener("click", () => getChoice("Paper"));
 scissors.addEventListener("click", () => getChoice("Scissors"));
@@ -42,9 +45,13 @@ scissors.addEventListener("click", () => getChoice("Scissors"));
 let humanScore = 0;
 let computerScore = 0;
 
+
+// styles for result div
+results.style.cssText = "width: 87.5%; height: 25%; background-color: var(--div-bg-color); align-self: flex-end; display: flex; flex-direction: column; position:absolute; justify-content: space-around; align-items: center; border: 1px solid purple; box-shadow: 0 0 50px purple; color: black; font-weight: bold; font-size: 1.3em; font-family: Arial; bottom: 5vh;"
+results.style.visibility = "hidden";
 // Function to handle human choice
 function getChoice(humanChoice) {
-    console.log(`You chose ${humanChoice}`);
+    results.style.visibility = "visible";
     let computerChoice = getComputerChoice(); 
     playRound(humanChoice, computerChoice);
 }
@@ -52,45 +59,45 @@ function getChoice(humanChoice) {
 //algorithm for players score
 
 function playRound(humanChoice, computerChoice) {
-
+    results.innerHTML = `<span>You chose ${humanChoice} computer chose ${computerChoice}</span>`
  if (humanChoice == "Rock" && computerChoice == "Paper") {
-    console.log("You lost Rock loses to Paper");
+    results.innerHTML += "You lost Rock loses to Paper";
     computerScore++;
     return 1; 
  }
 
  else if (humanChoice == "Rock" && computerChoice == "Scissors") {
-    console.log("You Won Rock beats Scissors");
+    results.innerHTMl += "You Won Rock beats Scissors";
     humanScore++;
     return 1;
  }
 
  else if (humanChoice == "Paper" && computerChoice == "Rock") {
-    console.log("You Won Paper beats Rock");
+    results.innerHTML += "You Won Paper beats Rock";
     humanScore++;
     return 1;  
  }
 
  else if (humanChoice == "Paper" && computerChoice == "Scissors") {
-    console.log("You lost Paper loses to Scissors");
+    results.innerHTML += "You lost Paper loses to Scissors";
     computerScore++;
     return 1;   
  }
 
  else if (humanChoice == "Scissors" && computerChoice == "Rock") {
-    console.log("You lost Scissors loses to Rock");
+    results.innerHTML += "You lost Scissors loses to Rock";
     computerScore++;
     return 1;   
  }
 
  else if (humanChoice == "Scissors" && computerChoice == "Paper") {
-    console.log("You Won Scissors beats Paper");
+    results.innerHTML += "You Won Scissors beats Paper";
     humanScore++;
     return 1;  
  }
 
  else {
-    console.log("Draw!");
+    results.innerHTML += "Draw!";
     return 1;
  }
 

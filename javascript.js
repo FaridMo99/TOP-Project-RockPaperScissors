@@ -2,8 +2,6 @@
 
  //function for randomizer between 1-9
 function getRandomIntInclusive(min, max) {
-    min = 1;
-    max = 9;
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
@@ -12,7 +10,7 @@ function getRandomIntInclusive(min, max) {
     //function for returning the number as a string and showing the player the result
 function getComputerChoice() {
     let a;
-    a = getRandomIntInclusive();
+    a = getRandomIntInclusive(1, 9);
     if  (a <= 3) {
         console.log("Computer chose Rock");
         return "Rock";
@@ -31,45 +29,29 @@ function getComputerChoice() {
 
 
 // algorithm for human choice
+
 const rock = document.getElementById("rock")
 const paper = document.getElementById("paper")
 const scissors = document.getElementById("scissors")
 
+rock.addEventListener("click", () => getChoice("Rock"));
+paper.addEventListener("click", () => getChoice("Paper"));
+scissors.addEventListener("click", () => getChoice("Scissors"));
 
-function getHumanChoice() {
-
-    const input = prompt("Choose between rock paper and scissors").toLocaleUpperCase();
-
-    if (input == "ROCK") {
-        console.log("You chose Rock");
-        return "Rock";
-    }
-
-    else if (input == "PAPER") {
-        console.log("You chose Paper");
-        return "Paper";
-    }
-
-    else if (input == "SCISSORS") {
-        console.log("You chose Scissors");
-        return "Scissors";
-    }
-
-    else {
-        console.log("Invalid answer");
-    }
-}
-
-
-//score
-
+// Score
 let humanScore = 0;
 let computerScore = 0;
+
+// Function to handle human choice
+function getChoice(humanChoice) {
+    console.log(`You chose ${humanChoice}`);
+    let computerChoice = getComputerChoice(); 
+    playRound(humanChoice, computerChoice);
+}
+
 //algorithm for players score
 
 function playRound(humanChoice, computerChoice) {
- humanChoice = getHumanChoice();
- computerChoice = getComputerChoice();
 
  if (humanChoice == "Rock" && computerChoice == "Paper") {
     console.log("You lost Rock loses to Paper");
@@ -118,31 +100,7 @@ function playRound(humanChoice, computerChoice) {
 //algorithm for adding Rounds til 5 and ending the game
 
 function playGame() {
-    
-   for(let x = 1; x <= 5; x++) {
-            playRound();
-            console.log(`Round ${x}`);
-    }
-
-    if (humanScore > computerScore) {
-        solution.innerText = "You Won the Game";
-    }
-
-    else if (computerScore > humanScore) {
-        solution.innerText = "Computer Won the Game";
-    }
-
-    else {
-        solution.innerText = "Game ended in a Draw!";
-    }
-    console.log(`Your Score ${humanScore}`);
-    console.log(`Computer Score ${computerScore}`);
-    solution.style.display = "block";
-    solution.style.display = "flex";
-    solution.style.justifyContent = "center";
-    solution.style.alignItems = "center";
+ 
 }
-
-playGame();
 
 

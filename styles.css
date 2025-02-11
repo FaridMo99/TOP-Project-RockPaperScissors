@@ -14,7 +14,7 @@ body {
     align-items:center;
 }
 
-button, #solution {
+button {
     background-color:var(--div-bg-color);
     width:25%;
     height:25%;
@@ -48,17 +48,4 @@ button:hover {
     margin-top:5vh;
 }
 
-
-#solution {
-    align-self: flex-end;
-    margin-bottom:5vh;
-    width:87.5%;
-    position:absolute;
-    box-shadow:0 0 50px purple;
-    border:1px solid purple;
-    cursor:auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
